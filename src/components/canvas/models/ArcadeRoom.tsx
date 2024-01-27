@@ -807,7 +807,7 @@ const Model = observer((props: JSX.IntrinsicElements["group"]) => {
               <color attach="background" args={["yellow"]} />
               <ambientLight />
               <KirbyArcade scale={0.2} position={[1.05, -0.25, -7.9]} />
-              <OrbitControls />
+              {/* <OrbitControls /> */}
             </MeshPortalMaterial>
           </mesh>
         </group>
@@ -839,7 +839,7 @@ const Model = observer((props: JSX.IntrinsicElements["group"]) => {
               <group position={workPortalGroupPosition.current}>
                 <ambientLight />
                 <KirbyArcade scale={0.2} position={[-1.35, -0.25, 3.9]} />
-                <OrbitControls />
+                {/* <OrbitControls /> */}
               </group>
             </MeshPortalMaterial>
           </mesh>

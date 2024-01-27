@@ -1,9 +1,6 @@
-import ArcadeKirby from "./models/ArcadeKirby";
-import SpaceInvaders from "./models/SpaceInvadersArcade";
-import Pacman from "./models/Pacman";
-import RustyArcade from "./models/RustyArcade";
+"use client";
+
 import ArcadeRoom from "./models/ArcadeRoom";
-import { useLimitedFrame } from "~/hooks/canvas/useLimitedFrame";
 
 export default function Menu() {
   // useLimitedFrame(0.1, ({ camera }) => {

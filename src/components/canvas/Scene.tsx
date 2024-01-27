@@ -1,30 +1,18 @@
 "use client";
 
 import { r3f } from "~/helpers/global";
-import {
-  AdaptiveDpr,
-  Bvh,
-  Preload,
-  Box,
-  CameraControls,
-  OrbitControls,
-} from "@react-three/drei";
-import { Quaternion, AgXToneMapping } from "three";
+import { AdaptiveDpr, Bvh, Preload } from "@react-three/drei";
+import { AgXToneMapping } from "three";
 import { Canvas } from "@react-three/fiber";
-// import { isMobile } from 'react-device-detect'
 import Menu from "./Menu";
-import { useEffect, useRef } from "react";
-import { $canvasState } from "~/state/canvas";
+import CameraControls from "./CameraControls";
 
-export default function Scene({ ...props }) {
+interface SceneProps extends Record<string, unknown> {
+  domElement: HTMLElement;
+}
+
+export default function Scene({ domElement, ...props }: SceneProps) {
   // Everything defined in here will persist between route changes, only children are swapped
-  const content = document.getElementById("content");
-  const cameraControlsRef = useRef<CameraControls>(null);
-  useEffect(() => {
-    if (cameraControlsRef.current) {
-      $canvasState.cameraControls.set(cameraControlsRef.current);
-    }
-  }, [cameraControlsRef]);
   return (
     <Canvas
       id="canvas"
@@ -44,16 +32,14 @@ export default function Scene({ ...props }) {
         left: 0,
         overflow: "hidden",
       }}
-      // eventSource={content!}
-      eventPrefix="client"
       onCreated={(state) => (state.gl.toneMapping = AgXToneMapping)}
+      eventPrefix="client"
       flat
       {...props}
     >
       <Bvh>
         <AdaptiveDpr />
-        <CameraControls makeDefault ref={cameraControlsRef} />
-        <Preload all />
+        <CameraControls />
         <r3f.Out />
         <Menu />
       </Bvh>

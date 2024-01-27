@@ -21,7 +21,7 @@ export default function Layout({ children }: PropsWithChildren) {
         {children}
       </div>
       <div className="fixed left-0 top-0 -z-[1] min-h-[100dvh] w-[100vw]">
-        <Scene eventSource={ref.current} />
+        <Scene domElement={ref.current!} eventSource={ref.current} />
       </div>
     </main>
   );

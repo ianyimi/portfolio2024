@@ -1,11 +1,10 @@
 import { observable } from "@legendapp/state";
-import { CameraControls } from "@react-three/drei";
-import { MutableRefObject } from "react";
+import { type CameraControls } from "@react-three/drei";
 
 interface CanvasState {
-  cameraControls?: CameraControls
+  cameraControls?: CameraControls;
 }
 
 export const $canvasState = observable<CanvasState>({
   cameraControls: undefined,
-})
+});
